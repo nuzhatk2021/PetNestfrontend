@@ -1,17 +1,22 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import SignInPage from './pages/signInPage.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Pets from "./pages/Pets";
+import SignIn from "./pages/SignIn";
+import Register from "./pages/Register";
+
 
 function App() {
-  const [signInUser, setSignInUser] = useState(false);
-
-  if (!signInUser) return <SignInPage userSignedIn = {setSignInUser}/>;
-
   return (
-    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pets" element={<Pets />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/signup" element={<Register />} />
 
-    </>
-  )
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
